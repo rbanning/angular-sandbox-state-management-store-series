@@ -1,27 +1,19 @@
-# AngularSandboxStateManagementStoreSeries
+# Angular Sandbox For State Management Series
+`angular-sandbox-state-management-store-series`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+## Overview
 
-## Development server
+This **sandbox** app is used to build a state management store.  
+We will be adding features (see repo branches) starting with very basic
+state management needs and building to more advanced features. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**[Demo](https://hallpass-sandbox-angular-state-management-series.netlify.app/)**
 
-## Code scaffolding
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21ba62b6-43a5-4ede-981e-e166155f3def/deploy-status)](https://app.netlify.com/sites/hallpass-sandbox-angular-state-management-series/deploys)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Tailwind CSS
+This `sandbox` uses Tailwind CSS to help with styling.  We use Tailwind in most of our projects.  
+It took us years to move to Tailwind (we were early Bootstrap enthusiasts) mainly because it 
+went against our view of modular styling - i.e. where we define css classes and use those classes to ensure consistency. 
+We still use classes but have moved away from global stylesheets to using components styled with Tailwind.  
+The theming comes in how we configure Tailwind in each of our applications.  
