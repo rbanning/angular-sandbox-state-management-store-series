@@ -1,0 +1,12 @@
+[build]
+  publish = "dist/angular-sandbox-state-management-store-series"
+  command = "ng build"
+  functions = "./functions"
+[dev]
+  command = "npm run start"
+  functions = "./functions"
+  publish = "src"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.indigo,
+        primary: colors.sky,
         secondary: colors.amber,
         accent: colors.amber,       //alias for secondary
         warn: colors.rose,
