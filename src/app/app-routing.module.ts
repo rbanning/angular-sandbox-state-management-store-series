@@ -14,7 +14,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  
+  { 
+    path: 'series',
+    loadChildren: () => import('./pages/series/series.module').then(m => m.SeriesModule)
+  },
+
   
   // 404
   { 

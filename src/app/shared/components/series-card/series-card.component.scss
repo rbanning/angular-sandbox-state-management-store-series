@@ -1,0 +1,22 @@
+:host { display: block; }
+
+/* setup the hover effects for the card */
+a {
+  &.button {
+    @apply transition-colors;
+  }
+  .image {
+    @apply transition-transform duration-300;
+  }
+}
+.card:hover {
+  .title {
+    @apply text-primary-600;
+  }
+  .button {
+    @apply text-primary-600 border-neutral-500;
+  }
+  .image {
+    @apply scale-105 motion-reduce:transition-none motion-reduce:transform-none;
+  }
+}

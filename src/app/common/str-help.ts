@@ -216,7 +216,8 @@ export const strHelp = {
     return !a && !b ? 0 : (!a ? -1 : 1);
   },
 
-  stringEquals(a: string, b: string, ignoreCase: boolean = false): boolean {
+  stringEquals(a: Nullable<string>, b: Nullable<string>, ignoreCase: boolean = false): boolean {
+    if (primitive.isNullish(a) || primitive.isNullish(b)) { return false; }
     return this.stringCompare(a, b, ignoreCase) === 0;
   },
 

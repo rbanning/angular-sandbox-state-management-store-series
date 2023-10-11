@@ -1,0 +1,7 @@
+<h1>The Series</h1>
+<div class="flex flex-wrap gap-4">
+  <app-series-card 
+    class="my-4"
+    *ngFor="let item of items$ | async"
+    [item]="item"></app-series-card>
+</div>

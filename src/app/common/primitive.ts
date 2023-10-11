@@ -14,7 +14,7 @@ export const primitive = {
   isBoolean: (obj: unknown): obj is boolean => typeof(obj) === 'boolean',
   isString: (obj: unknown): obj is string => typeof(obj) === 'string',
 
-  isArray: (obj: unknown) => Array.isArray(obj),
+  isArray: (obj: unknown): obj is unknown[] => Array.isArray(obj),
   
 }
 

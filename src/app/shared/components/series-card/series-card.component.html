@@ -1,0 +1,26 @@
+<ng-container *ngIf="item">
+  <div class="card relative w-64 shadow shadow-primary-100">
+    <div class="absolute top-2 left-2 
+      p-1 rounded
+      text-white text-lg font-light leading-none
+      bg-black/30 z-10">
+      #{{item.id}} in Series
+    </div>
+    <a [routerLink]="['/series', item.id]"
+      class="block w-full h-32 overflow-hidden">
+      <img 
+        class="image block object-cover object-center rounded-t"
+        [src]="item.image.src"
+        [alt]="item.image.alt" />  
+    </a>
+    <div class="p-2 border-2 border-neutral-100 rounded-b" *ngIf="display === 'normal'">
+      <div class="title text-xl font-thin text-primary-400">{{item.title}}</div>
+      <div class="my-1 leading-[1.125] text-sm">{{item.snippet}}</div>
+      <div class="mt-4 mb-2 flex justify-end">
+        <a class="button py-1 px-2 text-sm leading-none rounded-sm
+          border-2 border-neutral-200 text-neutral-400"  
+          [routerLink]="['/series', item.id]">Read More</a> 
+      </div>
+    </div>
+  </div>
+</ng-container>

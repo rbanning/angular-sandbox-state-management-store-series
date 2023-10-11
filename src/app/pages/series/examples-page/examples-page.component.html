@@ -1,0 +1,46 @@
+<ng-container *ngIf="{state: state$ | async} as obs">
+  <ng-container [ngSwitch]="obs.state && (!obs.state.payload || obs.state.status !== 'ready')">
+    <ng-container *ngSwitchCase="true">
+      <ng-container *ngIf="obs.state">
+        <div [ngSwitch]="obs.state.status">
+          <ng-container
+            *ngSwitchCase="'error'"
+            [ngTemplateOutlet]="error"
+            [ngTemplateOutletContext]="{ implicit$: obs.state.error }">
+          </ng-container>
+          <ng-container 
+            *ngSwitchCase="'ready'"
+            [ngTemplateOutlet]="error"
+            [ngTemplateOutletContext]="{ implicit$: {title: 'Unknown Error', message: 'Could not load example'} }">
+          </ng-container>
+          <p *ngSwitchDefault>
+            {{obs.state.status}}
+          </p>
+        </div>  
+      </ng-container>
+      
+    </ng-container>
+    <ng-container *ngSwitchCase="false">
+      <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series">
+        <div class="flex item-center gap-2 mt-1 mb-8">
+          <app-back-link [linkTo]="['/series', ''+obs.state.payload.series.id]"></app-back-link>
+          <span class="text-2xl text-neutral-400 font-thin">{{obs.state.payload.series.title}}</span>
+          <span class="text-2xl text-accent-600">&bullet;</span>
+          <span class="text-2xl text-neutral-400 font-semibold" *ngIf="obs.state.payload.example">{{obs.state.payload.example.title}}</span>
+        </div>  
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #error let-err>
+  <app-error-message [title]="err?.title ?? 'Error'">
+    <p>
+      {{err?.message ?? 'Unable to load the example.'}}
+    </p>
+    <p>
+      <a [routerLink]="['/series']" class="text-warn-800">Back to Series List</a>
+    </p>
+  </app-error-message>
+</ng-template>
+
