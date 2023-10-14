@@ -19,6 +19,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/series/series.module').then(m => m.SeriesModule)
   },
 
+  { 
+    path: 'aside',
+    loadChildren: () => import('./pages/aside/aside.module').then(m => m.AsideModule)
+  },
+
   
   // 404
   { 

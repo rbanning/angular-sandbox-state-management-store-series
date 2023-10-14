@@ -9,4 +9,13 @@
     and each iteration of the class will be documented here with demos.
   </p>
 
+  <p class="flex flex-wrap gap-4">
+    <a [routerLink]="['/series']" appButton>View Series</a>
+    <ng-container *ngFor="let color of colors">
+      <ng-container *ngFor="let type of types">
+        <a [routerLink]="['/series']" [appButton]="type" [color]="color">{{type}}-{{color}}</a>
+      </ng-container>
+  
+    </ng-container>
+  </p>
 </div>
