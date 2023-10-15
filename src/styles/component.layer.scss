@@ -113,5 +113,21 @@
   }
 
 
-
+  //card... //todo: add additional colors for cards
+  .card-base-neutral {
+    @apply bg-neutral-100 shadow 
+      hover:bg-neutral-200 transition-colors;
+  }
+  .card-header {
+    @apply py-2 px-2 flex items-center gap-4;
+  }
+  .card-header-neutral {
+    @apply card-header bg-neutral-400 text-neutral-100 text-xl; 
+  }
+  .card-content {
+    @apply p-2;
+  }
+  .card-content-neutral {
+    @apply card-content border-2 border-neutral-400;
+  }
 }

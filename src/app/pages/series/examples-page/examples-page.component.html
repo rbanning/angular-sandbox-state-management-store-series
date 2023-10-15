@@ -25,7 +25,7 @@
         <div class="flex item-center gap-2 mt-1 mb-8">
           <app-back-link [linkTo]="['/series', ''+obs.state.payload.series.id]"></app-back-link>
           <span class="text-2xl text-neutral-400 font-thin">{{obs.state.payload.series.title}}</span>
-          <span class="text-2xl text-accent-600">&bullet;</span>
+          <app-bullet></app-bullet>
           <span class="text-2xl text-neutral-400 font-semibold" *ngIf="obs.state.payload.example">{{obs.state.payload.example.title}}</span>
         </div>  
       </ng-container>

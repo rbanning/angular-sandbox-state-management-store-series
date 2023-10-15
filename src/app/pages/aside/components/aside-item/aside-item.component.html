@@ -1,0 +1,9 @@
+<a *ngIf="item"
+  [routerLink]="['/aside', item.id]"
+  class="flex flex-col" >
+  <span class="flex items-center">
+    <span class="text-lg flex-1">{{item.name}}</span>
+    <span class="font-mono px-2 text-sm bg-neutral-200 text-neutral-400">{{item.categoryId}}</span>
+  </span>
+  <span class="text-neutral-600 text-sm">{{item.snippet}}</span>
+</a>

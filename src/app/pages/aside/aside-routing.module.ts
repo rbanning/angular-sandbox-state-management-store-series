@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: AsideComponent
+  },
+  {
+    path: ':id',
+    component: AsideComponent
   }
 ];
 

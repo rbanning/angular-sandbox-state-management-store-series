@@ -1,0 +1,15 @@
+<div class="card-base-neutral" *ngIf="category">
+  <div class="card-header-neutral">
+    <img class="w-8 aspect-square" [src]="category.icon" alt="category icon"/>
+    <span>{{category.name}}</span>
+  </div>
+  <div class="card-content-neutral">
+    <div class="text-xl">{{category.snippet}}</div>
+    <div class="flex flex-col gap-4 mt-8" *ngIf="category.items">
+      <app-aside-item class="bg-white py-1 px-2" [item]="item" *ngFor="let item of category.items"></app-aside-item>
+    </div>
+    <ng-container *ngIf="!category.items">
+      <ng-content></ng-content>
+    </ng-container>
+  </div>
+</div>

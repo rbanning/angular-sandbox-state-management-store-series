@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription, of, switchMap } from 'rxjs';
 
@@ -25,7 +25,7 @@ type PageState = {
   styles: [
   ]
 })
-export class ExamplesPageComponent {
+export class ExamplesPageComponent implements OnDestroy {
 
   private seriesId: Nullable<number>;
   private exampleId: Nullable<string>;
@@ -84,5 +84,10 @@ export class ExamplesPageComponent {
     )
   }
 
+  ngOnDestroy(): void {
+      if (this.subscriptions) {
+        this.subscriptions.forEach(sub => sub.unsubscribe());
+      }
+  }
   
 }
