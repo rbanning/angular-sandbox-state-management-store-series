@@ -4,5 +4,11 @@
   [href]="href" 
   target="github">
   <span>{{name ?? file}}</span>
-  <!-- todo: add tooltip -->
+
+  <app-tooltip>
+    <div class="default">
+      View on GitHub...
+    </div>
+    <div class="custom"><ng-content></ng-content></div>
+  </app-tooltip>
 </a>

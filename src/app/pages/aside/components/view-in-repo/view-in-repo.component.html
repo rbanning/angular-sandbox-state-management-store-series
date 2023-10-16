@@ -1,0 +1,12 @@
+<div
+  *ngIf="file"
+  [appSurface]="2" 
+  class="relative p-4 text-neutral-700 text-base max-w-sm">
+
+  <div class="absolute top-0 right-0 p-1 text-accent-500 text-xs uppercase">
+    View on GitHub
+  </div>
+  View the <code>{{code ?? 'Code'}}</code> associated with this 
+  app: <app-repo-link [file]="file" [name]="name"></app-repo-link>
+  
+</div>

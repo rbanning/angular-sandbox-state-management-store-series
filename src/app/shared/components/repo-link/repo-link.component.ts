@@ -6,6 +6,15 @@ const GITHUB_REPO = "https://github.com/rbanning/angular-sandbox-state-managemen
   selector: 'app-repo-link',
   templateUrl: './repo-link.component.html',
   styles: [
+    `.custom {
+      color: green;
+    }`,
+    `.custom:empty { 
+      display: none; 
+    }`,
+    `.custom:not(:empty) + .default {
+      display: none;
+    }`
   ]
 })
 export class RepoLinkComponent {
