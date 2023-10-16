@@ -2,6 +2,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import { ThemeColor } from '@app/common';
 
 export type SurfaceSize = 1 | 2 | 3 | 4;
+export const surfaceSizes: SurfaceSize[] = [1,2,3,4];
 
 @Directive({
   selector: '[appSurface]'
@@ -10,7 +11,7 @@ export class SurfaceDirective {
   private _size: SurfaceSize = 1;
   @Input()
   set appSurface(size: SurfaceSize | '') {
-    if (typeof(size) === 'number') {
+    if (typeof(size) === 'number' && surfaceSizes.includes(size)) {
       this._size = size;
     }
   } 

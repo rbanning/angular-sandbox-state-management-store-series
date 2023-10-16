@@ -1,0 +1,83 @@
+/** Custom Component Layer Classes **/
+
+//--- SURFACE ----//
+
+@layer components {
+
+  .surface-1 {
+    @apply shadow-sm;
+  }
+  .surface-1-neutral {
+    @apply bg-neutral-100/20 hover:bg-neutral-100/30 surface-1;
+  }
+  .surface-1-primary {
+    @apply bg-primary-100/20 hover:bg-primary-100/30 surface-1;
+  }
+  .surface-1-secondary {
+    @apply bg-secondary-100/20 hover:bg-secondary-100/30 surface-1;
+  }
+  .surface-1-accent {
+    @apply bg-accent-100/20 hover:bg-accent-100/30 surface-1;
+  }
+  .surface-1-warn {
+    @apply bg-warn-100/20 hover:bg-warn-100/30 surface-1;
+  }
+
+  .surface-2 {
+    @apply shadow;
+  }
+  .surface-2-neutral {
+    @apply bg-neutral-100/30 hover:bg-neutral-100/40 surface-2;
+  }
+  .surface-2-primary {
+    @apply bg-primary-100/30 hover:bg-primary-100/40 surface-2;
+  }
+  .surface-2-secondary {
+    @apply bg-secondary-100/30 hover:bg-secondary-100/40 surface-2;
+  }
+  .surface-2-accent {
+    @apply bg-accent-100/30 hover:bg-accent-100/40 surface-2;
+  }
+  .surface-2-warn {
+    @apply bg-warn-100/30 hover:bg-warn-100/40 surface-2;
+  }
+
+  .surface-3 {
+    @apply shadow;
+  }
+  .surface-3-neutral {
+    @apply bg-neutral-100/40 hover:bg-neutral-100/50 surface-3;
+  }
+  .surface-3-primary {
+    @apply bg-primary-100/40 hover:bg-primary-100/50 surface-3;
+  }
+  .surface-3-secondary {
+    @apply bg-secondary-100/40 hover:bg-secondary-100/50 surface-3;
+  }
+  .surface-3-accent {
+    @apply bg-accent-100/40 hover:bg-accent-100/50 surface-3;
+  }
+  .surface-3-warn {
+    @apply bg-warn-100/40 hover:bg-warn-100/50 surface-3;
+  }
+
+  .surface-4 {
+    @apply shadow;
+  }
+  .surface-4-neutral {
+    @apply bg-neutral-100/50 hover:bg-neutral-100/60 surface-4;
+  }
+  .surface-4-primary {
+    @apply bg-primary-100/50 hover:bg-primary-100/60 surface-4;
+  }
+  .surface-4-secondary {
+    @apply bg-secondary-100/50 hover:bg-secondary-100/60 surface-4;
+  }
+  .surface-4-accent {
+    @apply bg-accent-100/50 hover:bg-accent-100/60 surface-4;
+  }
+  .surface-4-warn {
+    @apply bg-warn-100/50 hover:bg-warn-100/60 surface-4;
+  }
+
+}

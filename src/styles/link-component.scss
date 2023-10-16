@@ -1,0 +1,26 @@
+/** Custom Component Layer Classes **/
+
+//--- LINKS ---//
+
+@layer components {
+
+  .link {
+    @apply border-b-2 border-b-neutral-200 hover:border-b-neutral-500 transition-colors;
+  }
+  .link-neutral {
+    @apply link;
+  }
+  .link-primary {
+    @apply link border-b-primary-200 hover:border-b-primary-500;
+  }
+  .link-secondary {
+    @apply link border-b-secondary-200 hover:border-b-secondary-500;
+  }
+  .link-accent {
+    @apply link border-b-accent-200 hover:border-b-accent-500;
+  }
+  .link-warn {
+    @apply link border-b-warn-200 hover:border-b-warn-500;
+  }
+
+}

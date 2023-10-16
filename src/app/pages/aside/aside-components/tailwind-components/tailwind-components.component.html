@@ -1,0 +1,40 @@
+
+<h2>Buttons</h2>
+<p class="flex flex-wrap gap-4">
+  <ng-container *ngFor="let color of colors">
+    <ng-container *ngFor="let type of buttonTypes">
+      <a href="" [appButton]="type" [color]="color">{{type}}-{{color}}</a>
+    </ng-container>
+  </ng-container>
+</p>
+
+
+<h2 class="mt-8">Surfaces</h2>
+<div class="text-lg text-neutral-400 hover:text-neutral-600 transition-colors">
+  <p>
+    We use surfaces to show depth (really elevation).  By moving content 
+    up the z-axis (elevating it), we are signaling that the content is 
+    more important.  The higher the content, the more important the content.
+  </p>
+  <p>
+    We borrow the concept of surfaces from Material Design and incorporate 
+    our different theme colors <code>{{colors.join(', ')}}</code> to provide
+    a variety of surfaces that range in elevation ({{surfaceSizes.join(', ')}}).
+  </p>
+  <p>
+    <a class="link" href="https://m2.material.io/design/environment/surfaces.html#material-environment" target="_blank">
+      Learn more about Material Design Surface
+    </a>
+  </p>
+</div>
+<p class="flex flex-col gap-4">
+  <ng-container *ngFor="let color of colors">
+    <div class="flex gap-4">
+      <ng-container *ngFor="let size of surfaceSizes">
+        <div [appSurface]="size" [color]="color" class="p-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, adipisci labore?
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</p>

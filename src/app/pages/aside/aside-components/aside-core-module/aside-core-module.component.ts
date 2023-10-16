@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IAsideComponent } from '../aside-component.interface';
-import { IAsideCategory } from '../../utilities';
+import { AsideComponentBase } from '../aside-component-base';
 
 @Component({
   selector: 'app-aside-core-module',
@@ -8,7 +7,6 @@ import { IAsideCategory } from '../../utilities';
   styles: [
   ]
 })
-export class AsideCoreModuleComponent implements IAsideComponent {
-  category!: IAsideCategory;
-  data?: any;
+export class AsideCoreModuleComponent extends AsideComponentBase {
+
 }

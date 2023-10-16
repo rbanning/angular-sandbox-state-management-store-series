@@ -1,4 +1,4 @@
-import { AsideCoreModuleComponent } from "../aside-components";
+import { AsideCoreModuleComponent, TailwindComponentsComponent } from "../aside-components";
 import { IAsideCategory, IAsideItem } from "./aside.interface";
 
 export const categories: IAsideCategory[] = [
@@ -111,7 +111,8 @@ export const items: IAsideItem[] = [
     id: 'tailwind-component',
     name: 'Tailwind Component',
     categoryId: 'tailwind',
-    snippet: 'Quaerat deserunt ab corporis veniam pariatur nesciunt odit! Id, nulla.'
+    snippet: 'Quaerat deserunt ab corporis veniam pariatur nesciunt odit! Id, nulla.',
+    component: TailwindComponentsComponent
   },
 
 

@@ -1,0 +1,117 @@
+/** Custom Component Layer Classes **/
+
+//-- BUTTONS --//
+
+@layer components {
+
+  .button {
+    @apply py-1 px-2 outline-none active:outline-none transition-colors;
+  }
+  .button-outline {
+    @apply border-2;
+  }
+  .button-solid {
+    @apply border-0;
+  }
+  .button-clear {
+    @apply border-0 bg-transparent;
+  }
+
+
+  
+  //text colors
+  .button-text-neutral {
+    @apply text-neutral-500 hover:text-neutral-700;
+  }
+  .button-text-neutral-flip {
+    @apply text-neutral-50 hover:text-neutral-100;
+  }
+  .button-text-primary {
+    @apply text-primary-500 hover:text-primary-700;
+  }
+  .button-text-primary-flip {
+    @apply text-primary-50 hover:text-primary-100;
+  }
+  .button-text-secondary {
+    @apply text-secondary-500 hover:text-secondary-700;
+  }
+  .button-text-secondary-flip {
+    @apply text-secondary-50 hover:text-secondary-100;
+  }
+  .button-text-accent {
+    @apply text-accent-500 hover:text-accent-700;
+  }
+  .button-text-accent-flip {
+    @apply text-accent-50 hover:text-accent-100;
+  }
+  .button-text-warn {
+    @apply text-warn-500 hover:text-warn-700;
+  }
+  .button-text-warn-flip {
+    @apply text-warn-50 hover:text-warn-100;
+  }
+
+
+
+  // outline buttons
+  .button-outline-neutral {
+    @apply button button-outline button-text-neutral
+     border-neutral-100 hover:border-neutral-200;    
+  }
+  .button-outline-primary {
+    @apply button button-outline button-text-primary
+     border-primary-100 hover:border-primary-200;    
+  }
+  .button-outline-secondary {
+    @apply button button-outline button-text-secondary
+     border-secondary-100 hover:border-secondary-200;    
+  }
+  .button-outline-accent {
+    @apply button button-outline button-text-accent
+     border-accent-100 hover:border-accent-200;    
+  }
+  .button-outline-warn {
+    @apply button button-outline button-text-warn
+     border-warn-100 hover:border-warn-200;    
+  }
+
+  // clear buttons
+  .button-clear-neutral {
+    @apply button button-clear button-text-neutral;    
+  }
+  .button-clear-primary {
+    @apply button button-clear button-text-primary;    
+  }
+  .button-clear-secondary {
+    @apply button button-clear button-text-secondary;    
+  }
+  .button-clear-accent {
+    @apply button button-clear button-text-accent;    
+  }
+  .button-clear-warn {
+    @apply button button-clear button-text-warn;    
+  }
+
+  //solid
+  .button-solid-neutral {
+    @apply button button-solid button-text-neutral-flip
+     bg-neutral-400 hover:bg-neutral-600;    
+  }
+  .button-solid-primary {
+    @apply button button-solid button-text-primary-flip
+     bg-primary-400 hover:bg-primary-600;    
+  }
+  .button-solid-secondary {
+    @apply button button-solid button-text-secondary-flip
+     bg-secondary-400 hover:bg-secondary-600;    
+  }
+  .button-solid-accent {
+    @apply button button-solid button-text-accent-flip
+     bg-accent-400 hover:bg-accent-600;    
+  }
+  .button-solid-warn {
+    @apply button button-solid button-text-warn-flip
+     bg-warn-400 hover:bg-warn-600;    
+  }
+
+}
