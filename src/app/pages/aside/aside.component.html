@@ -1,28 +1,30 @@
-<ng-container *ngIf="{categories: categories$ | async, item: item$ | async} as obs">
-
-  <h1 class="flex items-center gap-4">
-    <app-back-link *ngIf="itemId" [routerLink]="['/aside']"></app-back-link>
-    <span>Asides</span>
-    <ng-container *ngIf="obs.item">
-      <app-bullet></app-bullet>
-      <span>{{obs.item.name}}</span>
-    </ng-container>    
-  </h1>
-  <ng-container *ngIf="!obs.item">
-    <p class="text-xl">
-      <code>Asides</code> are little snippets of learning included in this 
-      app to demonstrate some of the Angular (and other) features we have 
-      incorporated into this application.  It offers someone new to Angular
-      a chance to learn more about the framework.  For those with more 
-      experience, it is a good review and might even offer new 
-      techniques. 
-    </p>
-    <div 
-      class="my-8"
-      *ngFor="let category of categories$ | async">
-      <app-aside-category 
-        [category]="category"></app-aside-category>
-    </div>
-  </ng-container>
-  
+<h1 class="flex items-center gap-4">
+  <app-back-link *ngIf="itemId" [routerLink]="['/aside']"></app-back-link>
+  <span>Asides</span>
+  <ng-container *ngIf="item">
+    <app-bullet></app-bullet>
+    <span>{{item.category?.name ?? item.categoryId}}</span>
+  </ng-container>    
+</h1>
+<ng-container *ngIf="item; else no_item">
+  <h2>{{item.name}}</h2>
 </ng-container>
+<ng-template dynamicHost></ng-template>
+
+
+<ng-template #no_item>
+  <p class="text-xl">
+    <code>Asides</code> are little snippets of learning included in this 
+    app to demonstrate some of the Angular (and other) features we have 
+    incorporated into this application.  It offers someone new to Angular
+    a chance to learn more about the framework.  For those with more 
+    experience, it is a good review and might even offer new 
+    techniques. 
+  </p>
+  <div 
+    class="my-8"
+    *ngFor="let category of categories$ | async">
+    <app-aside-category 
+      [category]="category"></app-aside-category>
+  </div>
+</ng-template>

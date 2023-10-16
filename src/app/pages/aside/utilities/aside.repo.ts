@@ -1,3 +1,4 @@
+import { AsideCoreModuleComponent } from "../aside-components";
 import { IAsideCategory, IAsideItem } from "./aside.interface";
 
 export const categories: IAsideCategory[] = [
@@ -40,7 +41,8 @@ export const items: IAsideItem[] = [
     id: 'core-module',
     name: 'Core Module',
     categoryId: 'modules',
-    snippet: 'Quaerat deserunt ab corporis veniam pariatur nesciunt odit! Id, nulla.'
+    snippet: 'Quaerat deserunt ab corporis veniam pariatur nesciunt odit! Id, nulla.',
+    component: AsideCoreModuleComponent
   },
   {
     id: 'shared-module',

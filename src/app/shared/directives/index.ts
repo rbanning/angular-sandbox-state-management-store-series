@@ -1,10 +1,13 @@
+import { SurfaceDirective } from "./surface.directive";
 import { ButtonDirective } from "./button.directive";
-import { SeriesExampleDirective } from "./series-example.directive";
+import { DynamicHostDirective } from "./dynamic-host";
 
 export const sharedDirectives = [
   ButtonDirective,
-  SeriesExampleDirective,
+  DynamicHostDirective,
+  SurfaceDirective,
 ];
 
-export * from './series-example.directive';
+export * from './dynamic-host';
 export * from './button.directive';
+export * from './surface.directive';

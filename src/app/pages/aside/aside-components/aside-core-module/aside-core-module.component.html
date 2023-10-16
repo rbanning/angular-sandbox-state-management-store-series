@@ -1,0 +1,40 @@
+<p class="text-xl">
+  In all of our applications, we have a single core module (<code>CoreModule</code>) that is imported 
+  into the <code>AppModule</code> (boot module).  Essentially, the core module contains all of the 
+  things that need to be available to the application when it starts.  For us, these usually include the following:
+</p>
+
+<h3 class="mt-4">Components</h3>
+<p class="text-lg">
+  Any component that is part of the main application, <strong>but not referenced in any other module</strong> is 
+  declared in the core module.  This usually includes header and footer components which are used 
+  in <code>AppComponent</code> (the component called in <em>index.html</em>).
+</p>
+
+<h3 class="mt-4">Singleton Services</h3>
+<p class="text-lg">
+  We put all of our singleton services into the core module.  In the old days when services had to be 
+  included the "providers" section of a module, it made it easy to use the core module for declaring 
+  all of the singleton services.  Now, with the "providedIn" property of <code>@Injectable()</code> decorator,
+  services could be put into their own folder and don't need to be in a module.  But we like the idea 
+  of keeping them in the <code>CoreModule</code> as both are only instantiated once.  
+</p>
+
+<h3 class="mt-4">Guards</h3>
+<p class="text-lg">
+  We also put all of guards into the core module.  Like services, we could move guards to their own folder 
+  and not include them in a module.  But we like remain consistent and  
+  keep any "providedIn: 'root'" injectables in the <code>CoreModule</code>.  
+</p>
+
+<p>
+  We use a <em>guard</em> to ensure that the 
+  <code>CoreModule</code> is only imported into the <code>AppModule</code>. 
+  To learn more about how we do this, check out 
+  <a class="link" href="https://github.com/DanWahlin/Angular-JumpStart" target="_blank">Dan Wahlin's "Angular Jump Start" course/repo</a>
+</p>
+
+<div appSurface class="text-neutral-700 text-lg">
+  View the <code>CoreModule</code> associated with this 
+  app: <app-repo-link file="src/app/core" name="Core Module Folder"></app-repo-link>
+</div>

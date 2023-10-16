@@ -21,8 +21,11 @@
   "peacock.color": "#dd0531",
   "css.customData": [".vscode/custom-(s)css-rules.json"],
   "cSpell.words": [
+    "borderx",
+    "injectables",
     "noopener",
-    "tailwindcss"
+    "tailwindcss",
+    "Wahlin"
   ]
 
 }

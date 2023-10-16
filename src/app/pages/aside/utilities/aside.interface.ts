@@ -1,3 +1,5 @@
+import { Type } from "@angular/core";
+import { IAsideComponent } from "../aside-components";
 
 export interface IAsideCategory {
   id: string;
@@ -12,4 +14,5 @@ export interface IAsideItem {
   snippet: string;
   categoryId: string;
   category?: IAsideCategory;  //optional - added in AsideService  
+  component?: Type<IAsideComponent>;  //see https://angular.io/api/core/Type
 }

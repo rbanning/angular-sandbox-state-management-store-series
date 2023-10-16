@@ -1,7 +1,7 @@
 import { AsideCategoryComponent } from "./aside-category/aside-category.component";
 import { AsideItemComponent } from "./aside-item/aside-item.component";
 
-export const asideComponents = [
+export const generalComponents = [
   AsideCategoryComponent,
   AsideItemComponent,
 ];

@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared';
 
 import { AsideRoutingModule } from './aside-routing.module';
-import { AsideComponent } from './aside.component';
-import { asideComponents } from './components';
 import { AsideService } from './utilities/aside.service';
+import { AsideComponent } from './aside.component';
+import { generalComponents } from './components';
+import { asideComponents } from './aside-components';
 
 
 @NgModule({
   declarations: [
     AsideComponent,
-    asideComponents
+    generalComponents,
+    asideComponents,
   ],
   imports: [
     SharedModule,
