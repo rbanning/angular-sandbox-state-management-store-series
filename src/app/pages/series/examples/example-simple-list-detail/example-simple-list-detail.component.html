@@ -1,1 +1,10 @@
-<p>example-simple-list-detail works!</p>
+<ng-container *ngIf="{products: products$ | async} as obs">
+  <ng-container *ngIf="obs.products">
+    <!-- todo: use product card -->
+    <div class="my-4" *ngFor="let product of obs.products">
+      {{product.name}}
+    </div>
+  </ng-container>
+  
+</ng-container>
+

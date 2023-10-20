@@ -1,4 +1,5 @@
-[{"id":1,"name":"Pea - Snow","description":"Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.","category":"Khaki","image":"https://picsum.photos/id/1/250/250","price":"$4.50"},
+{ "products": [
+{"id":1,"name":"Pea - Snow","description":"Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.","category":"Khaki","image":"https://picsum.photos/id/1/250/250","price":"$4.50"},
 {"id":2,"name":"Turnip - Wax","description":"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.","category":"Fuscia","image":"https://picsum.photos/id/2/250/250","price":"$5.95"},
 {"id":3,"name":"White Baguette","description":"Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.","category":"Blue","image":"https://picsum.photos/id/3/250/250","price":"$3.42"},
 {"id":4,"name":"Tomatoes - Grape","description":"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.","category":"Indigo","image":"https://picsum.photos/id/4/250/250","price":"$6.34"},
@@ -998,3 +999,4 @@
 {"id":998,"name":"Dried Cranberries","description":"Proin at turpis a pede posuere nonummy. Integer non velit.","category":"Red","image":"https://picsum.photos/id/998/250/250","price":"$10.00"},
 {"id":999,"name":"Watercress","description":"Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.","category":"Blue","image":"https://picsum.photos/id/999/250/250","price":"$6.39"},
 {"id":1000,"name":"Oregano - Dry, Rubbed","description":"Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.","category":"Indigo","image":"https://picsum.photos/id/1000/250/250","price":"$5.35"}]
+}

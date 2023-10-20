@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { sharedComponents } from './components';
 import { RouterModule } from '@angular/router';
 import { sharedDirectives } from './directives';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -13,10 +14,12 @@ import { sharedDirectives } from './directives';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule  //don't export
   ],
   exports: [
     CommonModule,
+    HttpClientModule,
     sharedComponents,
     sharedDirectives,
   ]

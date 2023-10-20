@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { RemoteApiService } from "./remote-api.service";
-import { Nullable, primitive } from "@app/common";
+import { primitive } from "@app/common";
 import { IProducts } from "@app/models/products.interface";
-import { Observable, map, of } from "rxjs";
+import { Observable, map } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(protected remote: RemoteApiService) {}
 
-  load(): Observable<IProducts[]> {
+  loadFromRemote(): Observable<IProducts[]> {
     return this.remote.fetch('products')
     .pipe(
       map((result) => {

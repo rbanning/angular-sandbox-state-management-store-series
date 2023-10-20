@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 
-import * as products from './products.json';
+import * as data from './products.json';
 
 
 /**
@@ -27,7 +27,7 @@ import * as products from './products.json';
     if (event.httpMethod === 'GET') {
       return {
         statusCode: 200,
-        body: JSON.stringify(products),
+        body: JSON.stringify(data.products),
       };
   
     }
