@@ -2,8 +2,13 @@
   <ng-container [ngSwitch]="obs.state && (!obs.state.payload || obs.state.status !== 'ready')">
     
     <ng-container *ngSwitchCase="true">
+      <!-- Page is NOT ready so check for -->
       <ng-container *ngIf="obs.state">
         <div [ngSwitch]="obs.state.status">
+          <ng-container
+            *ngSwitchCase="'loading'"
+            [ngTemplateOutlet]="loading">
+          </ng-container>
           <ng-container
             *ngSwitchCase="'error'"
             [ngTemplateOutlet]="error"
@@ -14,25 +19,35 @@
             [ngTemplateOutlet]="error"
             [ngTemplateOutletContext]="{ $implicit: {title: 'Unknown Error', message: 'Unknown example or we could not load example'} }">
           </ng-container>
-          <p *ngSwitchDefault>
-            {{obs.state.status}}
-          </p>
+          <ng-container 
+            *ngSwitchDefault
+            [ngTemplateOutlet]="loading">
+          </ng-container>
         </div>  
       </ng-container>
     </ng-container>
 
     <ng-container *ngSwitchCase="false">
-      <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series">
-        <div class="flex item-center gap-2 mt-1 mb-8">
+      <!-- Page is ready which will only be true if the payload has a series, example and component -->
+      <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series && obs.state.payload.example && obs.state.payload.example.component">
+        <h1 class="flex flex-wrap item-center gap-2 mt-1 mb-8">
           <app-back-link [linkTo]="['/series', ''+obs.state.payload.series.id]"></app-back-link>
-          <span class="text-2xl text-neutral-400 font-thin">{{obs.state.payload.series.title}}</span>
+          <span class="font-thin">{{obs.state.payload.series.title}}</span>
           <app-bullet></app-bullet>
-          <span class="text-2xl text-neutral-400 font-semibold" *ngIf="obs.state.payload.example">{{obs.state.payload.example.title}}</span>
-        </div>  
+          <span class="font-semibold">{{obs.state.payload.example.title}}</span>
+        </h1> 
+        <ng-template dynamicHost></ng-template> 
       </ng-container>
     </ng-container>
   </ng-container>
 </ng-container>
+
+<ng-template #loading>
+  <p>
+    loading example...
+  </p>
+</ng-template>
+
 
 <ng-template #error let-err>
   <app-error-message [title]="err?.title ?? 'Error'">
@@ -45,3 +60,10 @@
   </app-error-message>
 </ng-template>
 
+
+<ng-template #no_example>
+  <p class="text-xl">
+    Each series has a set of examples that are design to illustrate
+    the one or more principles outlined in the series.
+  </p>
+</ng-template>

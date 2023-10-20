@@ -1,8 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription, of, switchMap } from 'rxjs';
 
 import { Nullable, parsers, primitive, strHelp } from '@app/common';
+import { DynamicHostDirective, ErrorMessageComponent, IErrorMessage } from '@app/shared';
 
 import { SeriesService, ISeriesItem, ISeriesPage } from '../utilities';
 
@@ -32,6 +33,8 @@ export class ExamplesPageComponent implements OnDestroy {
 
   stateSubject = new BehaviorSubject<PageState>({status: 'pending'});
   state$: Observable<PageState> = this.stateSubject.asObservable();
+
+  @ViewChild(DynamicHostDirective, {static: true}) dynamicHost!: DynamicHostDirective;
 
   private subscriptions: Subscription[] = [];
 

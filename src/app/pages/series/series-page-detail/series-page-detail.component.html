@@ -1,9 +1,9 @@
-<h1 class="flex items-center gap-2 mt-1 mb-8">
+<h1 class="flex flex-wrap items-center gap-2 mt-1 mb-8">
   <app-back-link [linkTo]="['/series']"></app-back-link>
   <span>Series Detail</span>
 </h1>
 <ng-container *ngIf="item">
-  <div class="flex items-center gap-4">
+  <div class="flex flex-col lg:flex-row lg:items-center gap-4">
     <app-series-card [item]="item" display="mini"></app-series-card>
     <div>
       <h1 class="mb-0">{{item.title}}</h1>

@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, Observable, of } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { AsideService } from './utilities/aside.service';
 import { IAsideCategory, IAsideItem } from './utilities';
 import { Nullable } from '@app/common';
 import { DynamicHostDirective, ErrorMessageComponent, IErrorMessage } from '@app/shared';
-import { AsideCoreModuleComponent, IAsideComponent } from './aside-components';
+import { IAsideComponent } from './aside-components';
 
 @Component({
   selector: 'app-aside',
