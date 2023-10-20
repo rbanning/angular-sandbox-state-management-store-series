@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExamplePageBase } from '../example-page-base';
 
 @Component({
   selector: 'app-example-simple-list-detail',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class ExampleSimpleListDetailComponent {
+export class ExampleSimpleListDetailComponent extends ExamplePageBase {
 
 }

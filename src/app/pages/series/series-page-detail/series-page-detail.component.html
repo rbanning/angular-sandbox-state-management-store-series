@@ -1,8 +1,8 @@
-<div class="flex items-center gap-2 mt-1 mb-8">
+<h1 class="flex items-center gap-2 mt-1 mb-8">
   <app-back-link [linkTo]="['/series']"></app-back-link>
-  <div class="text-4xl text-neutral-400 mb-0">Series Detail</div>
-</div>
-<ng-container *ngIf="(item$ | async) as item">
+  <span>Series Detail</span>
+</h1>
+<ng-container *ngIf="item">
   <div class="flex items-center gap-4">
     <app-series-card [item]="item" display="mini"></app-series-card>
     <div>

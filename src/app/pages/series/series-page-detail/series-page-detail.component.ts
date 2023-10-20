@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Observable, Subscription, of } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { Nullable, parsers } from '@app/common';
-import { SeriesService } from '@app/core';
-import { ISeriesItem } from '@app/models';
+import { SeriesService, ISeriesItem } from '../utilities';
 
 @Component({
   selector: 'app-series-page-detail',
@@ -14,7 +13,8 @@ import { ISeriesItem } from '@app/models';
   ]
 })
 export class SeriesPageDetailComponent {
-  item$!: Observable<Nullable<ISeriesItem>>;
+  itemId: Nullable<number>;
+  item: Nullable<ISeriesItem>;
 
   private subscriptions: Subscription[] = [];
 
@@ -25,14 +25,28 @@ export class SeriesPageDetailComponent {
     this.subscriptions.push(
       route.params.subscribe({
         next: (params) => {
-          const id = parsers.toInt(params['id'], 0);
-          if (id) {
-            this.item$ = service.get(id);
-          } else {
-            this.item$ = of(null);
-          }
+
+          this.loadItem(parsers.toInt(params['id'], 0));
         }
       })
     )
   }
+
+  private loadItem(id: Nullable<number>) {
+    this.itemId = id;
+    if (id) {
+      this.subscriptions.push(
+        this.service.get(id)
+        .subscribe({
+          next: (item) => {
+            this.item = item;
+          }
+        })
+      )
+    } else {
+      this.item = null;
+    }
+  }
+
+  
 }

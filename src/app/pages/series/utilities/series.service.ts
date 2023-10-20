@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable, map, of } from 'rxjs';
-import { ISeriesItem } from '@app/models';
-import { Nullable, primitive, strHelp } from '@app/common';
+
+import { Nullable, primitive } from '@app/common';
+
+import { ISeriesItem } from './series.interface';
 import * as seriesRepo from './series.repo';
 
 export type SeriesItemPredicate = (item: ISeriesItem) => boolean;

@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { ISeriesItem } from '@app/models';
-import { SeriesService } from '@app/core';
+import { Component } from '@angular/core';
+import { SeriesService, ISeriesItem } from './utilities';
 
 @Component({
   selector: 'app-series-page',

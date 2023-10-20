@@ -1,4 +1,5 @@
-import { ISeriesItem } from "../../../models/series.interface";
+import { ExampleSimpleListDetailComponent, ExampleUserProfileThroughOutComponent } from "../examples";
+import { ISeriesItem } from "./series.interface";
 
 export const data: ISeriesItem[] = [
   {
@@ -11,8 +12,8 @@ export const data: ISeriesItem[] = [
       'The examples provided show various places where these extra remote API slow our app.'
     ],
     pages: [
-      { id: 'simple-list-detail', title: 'Simple List/Detail Example' },
-      { id: 'user-profile-through-out', title: 'Using User Profile Though Out a Page'}
+      { id: 'simple-list-detail', title: 'Simple List/Detail Example', component: ExampleSimpleListDetailComponent  },
+      { id: 'user-profile-through-out', title: 'Using User Profile Though Out a Page', component: ExampleUserProfileThroughOutComponent }
     ],
     image: {
       src: "/assets/series/1-getting-started.martin-sanchez.unsplash.jpg",

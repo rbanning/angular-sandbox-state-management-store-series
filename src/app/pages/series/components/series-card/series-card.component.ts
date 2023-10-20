@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Nullable } from '@app/common';
-import { ISeriesItem } from '@app/models';
+import { ISeriesItem } from '../../utilities';
 
 export type CardDisplayType = 'normal' | 'mini'
 
