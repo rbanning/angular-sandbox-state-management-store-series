@@ -31,13 +31,16 @@
   <ng-container *ngFor="let color of colors">
     <div class="flex gap-4">
       <ng-container *ngFor="let size of surfaceSizes">
-        <div [appSurface]="size" [color]="color" class="p-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, adipisci labore?
+        <div [appSurface]="size" [color]="color" class="p-4">
+          This is a <strong>'{{color}}'</strong> surface with an elevation of <strong>{{size}}</strong>.
+          Surfaces are used to set content apart from other content, usually 
+          implying importance.
         </div>
       </ng-container>
     </div>
   </ng-container>
 </p>
 
-
-<app-view-in-repo file="src/styles" name="Tailwind Custom Components" code="TailwindConfig"></app-view-in-repo>
+<div class="my-8 flex justify-end">
+  <app-view-in-repo file="src/styles" name="Tailwind Custom Components" code="TailwindConfig"></app-view-in-repo>
+</div>

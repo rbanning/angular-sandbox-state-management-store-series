@@ -43,7 +43,7 @@
   }
 
   .surface-3 {
-    @apply shadow;
+    @apply shadow-md;
   }
   .surface-3-neutral {
     @apply bg-neutral-100/40 hover:bg-neutral-100/50 surface-3;
@@ -62,7 +62,7 @@
   }
 
   .surface-4 {
-    @apply shadow;
+    @apply shadow-lg;
   }
   .surface-4-neutral {
     @apply bg-neutral-100/50 hover:bg-neutral-100/60 surface-4;

@@ -1,25 +1,26 @@
 <ng-container *ngIf="{state: state$ | async} as obs">
   <ng-container [ngSwitch]="obs.state && (!obs.state.payload || obs.state.status !== 'ready')">
+    
     <ng-container *ngSwitchCase="true">
       <ng-container *ngIf="obs.state">
         <div [ngSwitch]="obs.state.status">
           <ng-container
             *ngSwitchCase="'error'"
             [ngTemplateOutlet]="error"
-            [ngTemplateOutletContext]="{ implicit$: obs.state.error }">
+            [ngTemplateOutletContext]="{ $implicit: obs.state.error }">
           </ng-container>
           <ng-container 
             *ngSwitchCase="'ready'"
             [ngTemplateOutlet]="error"
-            [ngTemplateOutletContext]="{ implicit$: {title: 'Unknown Error', message: 'Could not load example'} }">
+            [ngTemplateOutletContext]="{ $implicit: {title: 'Unknown Error', message: 'Unknown example or we could not load example'} }">
           </ng-container>
           <p *ngSwitchDefault>
             {{obs.state.status}}
           </p>
         </div>  
       </ng-container>
-      
     </ng-container>
+
     <ng-container *ngSwitchCase="false">
       <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series">
         <div class="flex item-center gap-2 mt-1 mb-8">

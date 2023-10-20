@@ -64,6 +64,8 @@ export class ExamplesPageComponent implements OnDestroy {
                 payload
               });
             } else {
+              console.log("DEBUG: could not find the example", {self: this, series});
+
               this.stateSubject.next({status: 'error', 
                 error: {
                   title: 'Missing/Invalid Example', 
