@@ -1,11 +1,11 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild, OnInit, Type } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription, of, switchMap } from 'rxjs';
 
-import { Nullable, parsers, primitive, strHelp } from '@app/common';
+import { Nullable, arrayHelp, parsers, primitive, strHelp } from '@app/common';
 import { DynamicHostDirective, ErrorMessageComponent, IErrorMessage } from '@app/shared';
 
-import { SeriesService, ISeriesItem, ISeriesPage } from '../utilities';
+import { SeriesService, ISeriesItem, ISeriesPage, IExamplePage } from '../utilities';
 
 type PageStateStatus = 'pending' | 'loading' | 'ready' | 'error';
 type PagePayload = {
@@ -26,7 +26,7 @@ type PageState = {
   styles: [
   ]
 })
-export class ExamplesPageComponent implements OnDestroy {
+export class ExamplesPageComponent implements OnInit, OnDestroy {
 
   private seriesId: Nullable<number>;
   private exampleId: Nullable<string>;
@@ -37,6 +37,11 @@ export class ExamplesPageComponent implements OnDestroy {
   @ViewChild(DynamicHostDirective, {static: true}) dynamicHost!: DynamicHostDirective;
 
   private subscriptions: Subscription[] = [];
+
+  //dynamicHost will not be ready until the OnInit lifecycle
+  //so we stage any component to be loaded
+  private exampleComponentToLoad: Nullable<Type<IExamplePage>>;
+  private onInitComplete = false;
 
   constructor(
     protected service: SeriesService,
@@ -58,6 +63,11 @@ export class ExamplesPageComponent implements OnDestroy {
         }
       })
     )
+  }
+
+  ngOnInit(): void {
+    this.onInitComplete = true;
+    this.loadExampleComponent();
   }
 
   ngOnDestroy(): void {
@@ -102,7 +112,28 @@ export class ExamplesPageComponent implements OnDestroy {
 
   }
   
-  private loadExampleComponent(component: any) {
-    console.log("DEBUG: loading component", component);
+  private loadExampleComponent(component?: Type<IExamplePage>) {
+    if (component) {
+      this.exampleComponentToLoad = component;
+    }
+
+    if (this.onInitComplete) {
+      const ref = this.dynamicHost.viewContainerRef;    
+      if (!ref) {
+        throw new Error("Could not locate the dynamicHost's view container ref");
+      }
+  
+      ref.clear();  //reset
+
+      if (this.exampleComponentToLoad) {
+        //load
+        const componentRef = ref.createComponent<IExamplePage>(this.exampleComponentToLoad);
+        componentRef.instance.data = this.stateSubject.value;
+      } else {
+        const componentRef = ref.createComponent<IErrorMessage>(ErrorMessageComponent);
+        componentRef.instance.title = 'Error Loading Example';
+        componentRef.instance.message = 'Could not locate the content for this example';
+      }  
+    }
   }
 }

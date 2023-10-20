@@ -28,19 +28,21 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="false">
-      <!-- Page is ready which will only be true if the payload has a series, example and component -->
-      <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series && obs.state.payload.example && obs.state.payload.example.component">
+      <!-- Page is ready which will only be true if the payload has a series and example -->
+      <ng-container *ngIf="obs.state && obs.state.payload && obs.state.payload.series && obs.state.payload.example">
         <h1 class="flex flex-wrap item-center gap-2 mt-1 mb-8">
           <app-back-link [linkTo]="['/series', ''+obs.state.payload.series.id]"></app-back-link>
           <span class="font-thin">{{obs.state.payload.series.title}}</span>
           <app-bullet></app-bullet>
           <span class="font-semibold">{{obs.state.payload.example.title}}</span>
         </h1> 
-        <ng-template dynamicHost></ng-template> 
       </ng-container>
     </ng-container>
   </ng-container>
 </ng-container>
+
+<!-- dynamicHost -->
+<ng-template dynamicHost></ng-template> 
 
 <ng-template #loading>
   <p>
