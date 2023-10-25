@@ -1,10 +1,27 @@
-<ng-container *ngIf="{products: products$ | async} as obs">
-  <ng-container *ngIf="obs.products">
-    <!-- todo: use product card -->
-    <div class="my-4" *ngFor="let product of obs.products">
-      {{product.name}}
+<ng-container *ngIf="{products: products$ | async, selected: selected$ | async} as obs">
+  <ng-container *ngIf="selectedId">
+    <div *ngIf="obs.selected; else not_found">
+      <app-product-card [item]="obs.selected">
+        <div class="flex" actions>
+          <button appButton="solid" color="accent" (click)="deselect()">close</button>
+        </div>
+      </app-product-card>      
     </div>
   </ng-container>
-  
+  <div *ngIf="!selectedId && obs.products" class="flex flex-wrap gap-4">
+    <div
+      class="cursor-pointer" 
+      (click)="select(item.id)"
+      *ngFor="let item of obs.products">
+      <app-product-list-item [item]="item"></app-product-list-item>
+    </div>
+  </div>
 </ng-container>
 
+<ng-template #not_found>
+  <app-error-message title="Not Found">
+    <p>
+      Could not located requested product (<code class="inline-block">id: {{selectedId ?? 'n/a'}}</code>)
+    </p>
+  </app-error-message>
+</ng-template>

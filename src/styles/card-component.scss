@@ -4,21 +4,38 @@
 
 @layer components {
 
-
-  //todo: add additional colors for cards
-
-  .card-base-neutral {
-    @apply bg-neutral-100 shadow 
-      hover:bg-neutral-200 transition-colors;
+  .card-base {
+    @apply shadow hover:shadow-md;
   }
   .card-header {
     @apply py-2 px-2 flex items-center gap-4;
   }
-  .card-header-neutral {
-    @apply card-header bg-neutral-400 text-neutral-100 text-xl; 
+  .card-image {
+    @apply block;
+    img { @apply block; }
   }
   .card-content {
     @apply p-2;
+  }
+  .card-content-extra {
+    @apply mt-4;
+  }
+  .card-content-extra:empty { display: none; }
+  .card-actions {
+    @apply mt-4 p-2;
+  }
+  .card-actions:empty { display: none; }
+
+
+  //todo: add additional colors for cards
+
+  .card-base-neutral {
+    @apply card-base 
+      bg-neutral-100 
+      hover:bg-neutral-200 transition-colors;
+  }
+  .card-header-neutral {
+    @apply card-header bg-neutral-400 text-neutral-100 text-xl; 
   }
   .card-content-neutral {
     @apply card-content border-2 border-neutral-400;
