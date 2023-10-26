@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { RemoteApiService } from "./remote-api.service";
 import { Nullable, primitive } from "@app/common";
 import { IProduct } from "@app/models/products.interface";
-import { Observable, map } from "rxjs";
+import { Observable, map, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +23,27 @@ export class ProductService {
     )
   }
   getFromRemote(id: string): Observable<Nullable<IProduct>> {
-    return this.loadFromRemote()
-    .pipe(
-      map((result) => {
-        return result.find(m => m.id === id);
-      })
-    )
+    return this.remote.fetch('products', [id])
+      .pipe(
+        map((result) => {
+          if (result) {
+            return result as IProduct;
+          }
+          return null;   //not found?
+        })
+      )
   }
+  getByCategoryFromRemote(category: string): Observable<IProduct[]> {
+    return this.remote.fetch('products', ['category', category])
+      .pipe(
+        map((result) => {
+          if (primitive.isArray(result)) {
+            return result as IProduct[];
+          }
+          //else
+          return []; //not found
+        })
+      )
+  }
+
 }

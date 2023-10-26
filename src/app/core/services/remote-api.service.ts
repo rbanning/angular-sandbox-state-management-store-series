@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, delay, finalize, tap, throwError } from 'rxjs';
-import { parsers } from "@app/common";
+import { Nullable, parsers, primitive } from "@app/common";
 import { WorkingService } from "./working.service";
 import { ConfigService } from "./config.service";
 
@@ -11,7 +11,7 @@ export type API_ENDPOINT = 'products' | 'users';
 })
 export class RemoteApiService {
   protected readonly BASE_URL: string;
-  protected readonly DELAY = 2000;
+  protected readonly DELAY;
 
   constructor(
     protected config: ConfigService,
@@ -19,19 +19,20 @@ export class RemoteApiService {
     protected workingService: WorkingService
   ) { 
     this.BASE_URL = config.get<string>('api_base_url');
+    this.DELAY = config.get<number>('remote_delay') ?? 2000;
   }
 
-  fetch(what: API_ENDPOINT): Observable<any> {
-    const url = this.BASE_URL + what;
+  fetch(what: API_ENDPOINT, path?: Nullable<string[]>): Observable<any> {
+    const url = this.BASE_URL + what + (primitive.isArray(path) ? `/${path.join('/')}` : '');
     this.setWorking(what, true);
     return this.http.get(url)
       .pipe(
         delay(this.DELAY),
         tap((result) => {
-          console.log("RemoteApiService - fetch", {what, result});
+          console.log("RemoteApiService - fetch", {what, path, result});
         }),
         catchError((err) => {
-          console.warn("RemoteApiService - fetch ERROR", {what, err});
+          console.warn("RemoteApiService - fetch ERROR", {what, path, err});
           return throwError(() => this.buildErrorMessage(err));
         }),
         finalize(() => {

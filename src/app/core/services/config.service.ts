@@ -20,7 +20,8 @@ export class ConfigService {
   loadConfig() {
     return {
       production: parsers.toBooleanStrict(environment.production, false),
-      api_base_url: environment.api_base_url ?? ''
+      api_base_url: environment.api_base_url ?? '',
+      remote_delay: parsers.toInt(environment.remote_delay, 1000),
     } as IConfig;
   }
 }
