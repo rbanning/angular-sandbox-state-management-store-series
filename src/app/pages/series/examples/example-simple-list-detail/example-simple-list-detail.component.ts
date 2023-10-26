@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 import { Component } from '@angular/core';
 import { ProductService } from '@app/core';
 import { IProduct } from '@app/models';
@@ -34,4 +34,7 @@ export class ExampleSimpleListDetailComponent extends ExamplePageBase {
   deselect() {
     this.products$ = this.service.loadFromRemote();
   }
+
+
+  
 }

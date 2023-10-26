@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 
-import * as data from './products.json';
+import * as data from './products-without-images.json';
 import { parseFunctionEvent } from 'function_helpers/request';
 import { arrayHelp, strHelp } from 'src/app/common';
 
@@ -35,7 +35,7 @@ import { arrayHelp, strHelp } from 'src/app/common';
           case 'categories':
             if (req.path.length > 2) {
               //return only those products of the requested category
-              const category = req.path[2];
+              const category = decodeURI(req.path[2]);
               const payload = data.products.filter(p => strHelp.stringEquals(p.category, category, true));
               return {
                 statusCode: 200,

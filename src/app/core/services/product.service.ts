@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { RemoteApiService } from "./remote-api.service";
-import { Nullable, primitive } from "@app/common";
+import { Nullable, arrayHelp, generateImage, primitive } from "@app/common";
 import { IProduct } from "@app/models/products.interface";
 import { Observable, map, of } from "rxjs";
 
@@ -16,7 +16,9 @@ export class ProductService {
     .pipe(
       map((result) => {
         if (primitive.isArray(result)) {
-          return result as IProduct[];
+          return result.map(p => {
+            return this.castAsProduct(p);
+          });
         }
         throw new Error("Product Remote API did not return a collection of products as expected");
       })
@@ -27,7 +29,7 @@ export class ProductService {
       .pipe(
         map((result) => {
           if (result) {
-            return result as IProduct;
+            return this.castAsProduct(result);
           }
           return null;   //not found?
         })
@@ -38,7 +40,9 @@ export class ProductService {
       .pipe(
         map((result) => {
           if (primitive.isArray(result)) {
-            return result as IProduct[];
+            return result.map(p => {
+              return this.castAsProduct(p);
+            });
           }
           //else
           return []; //not found
@@ -46,4 +50,15 @@ export class ProductService {
       )
   }
 
+
+  private castAsProduct(result: any): IProduct {
+    return {
+      ...result,
+      image: this.buildImage(result as IProduct)  //generating the images adds "friction" making the request slower
+    };
+  }
+
+  private buildImage(product: IProduct): string {
+    return generateImage(arrayHelp.first(product.name.split('-')) ?? '', product.category);
+  }
 }
