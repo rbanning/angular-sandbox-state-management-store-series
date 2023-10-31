@@ -32,6 +32,8 @@ export class ExampleSimpleListDetailComponent extends ExamplePageBase {
   }
 
   deselect() {
+    this.selectedId = null;
+    this.selected$ = of(null);
     this.products$ = this.service.loadFromRemote();
   }
 

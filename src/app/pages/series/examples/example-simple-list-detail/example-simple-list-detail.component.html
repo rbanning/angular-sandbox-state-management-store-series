@@ -1,14 +1,16 @@
 <ng-container *ngIf="{products: products$ | async, selected: selected$ | async} as obs">
-  <ng-container *ngIf="selectedId">
-    <div *ngIf="obs.selected; else not_found">
-      <app-product-card [item]="obs.selected">
-        <div class="flex" actions>
-          <button appButton="solid" color="accent" (click)="deselect()">close</button>
-        </div>
-      </app-product-card>      
-    </div>
-  </ng-container>
-  <div *ngIf="!selectedId && obs.products" class="flex flex-wrap gap-4">
+  <div 
+    *ngIf="selectedId;"
+    class="fixed top-0 bottom-0 left-0 right-0 bg-slate-600/70 flex flex-col justify-center">
+      <div class="mx-auto">
+        <app-product-card 
+          [item]="obs.selected" 
+          [actions]="[{label: 'close', button: { color: 'accent'}}]"
+          (action)="deselect()">
+        </app-product-card>      
+      </div>
+  </div>
+  <div *ngIf="obs.products" class="flex flex-wrap gap-4">
     <div
       class="cursor-pointer" 
       (click)="select(item.id)"

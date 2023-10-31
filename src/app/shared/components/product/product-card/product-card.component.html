@@ -13,8 +13,13 @@
         <div class="text-neutral-800 text">category: {{item.category}}</div>
         <div class="text-accent-800">price: {{item.price}}</div>
       </div>
-      <div class="card-content-extra"><ng-content select="[content]"></ng-content></div>
     </div>
-    <div class="card-actions"><ng-content select="[actions]"></ng-content></div>
+    <div class="card-actions flex flex-wrap justify-end items-center gap-4" *ngIf="actions.length > 0">
+      <button 
+        *ngFor="let item of actions"
+        [appButton]="item.button.type"
+        [color]="item.button.color"
+        (click)="handleAction(item)">{{item.label}}</button>
+    </div>
   </div>
 </ng-container>

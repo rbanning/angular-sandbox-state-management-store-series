@@ -23,7 +23,7 @@ export class RemoteApiService {
   }
 
   fetch(what: API_ENDPOINT, path?: Nullable<string[]>): Observable<any> {
-    const url = this.BASE_URL + what + (primitive.isArray(path) ? `/${path.join('/')}` : '');
+    const url = this.buildUrl(what, path);
     this.setWorking(what, true);
     return this.http.get(url)
       .pipe(
@@ -41,7 +41,10 @@ export class RemoteApiService {
       )
   }
 
-
+  protected buildUrl(what: API_ENDPOINT, path?: Nullable<string[]>): string {
+    return this.BASE_URL + what + (primitive.isArray(path) ? `/${path.join('/')}` : '');
+  }
+  
   protected buildErrorMessage(err: any): string {
     return parsers.fromHttpError(err) ?? 'Unknown error returned by remote api';
   }
